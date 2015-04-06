@@ -4,9 +4,12 @@ namespace Example
 {
   public class Entity
   {
-    public Entity()
+    private String name;
+
+    public Entity(String name)
     {
-      System.Console.WriteLine("I'm alive!");
+      this.name = name;
+      System.Console.WriteLine("I'm alive! My name is " + name);
     }
 
     ~Entity()
@@ -14,10 +17,14 @@ namespace Example
       System.Console.WriteLine("I'm being finalized!");
     }
 
-    public void Process(String name)
+    public void Process()
     {
-      System.Console.WriteLine("Hello from C#! My name is " + name);
       throw new Exception("Oh no!");
+    }
+
+    public String getName()
+    {
+      return name;
     }
   }
 }
