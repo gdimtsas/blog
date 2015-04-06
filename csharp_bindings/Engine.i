@@ -8,14 +8,14 @@
 
 class Component
 {
-public:
+ public:
   Component();
   virtual ~Component();
 };
 
 class TransformationComponent : public Component
 {
-public:
+ public:
   TransformationComponent();
   ~TransformationComponent();
 
@@ -24,10 +24,12 @@ public:
 
 class Entity
 {
-public:
+ public:
   Entity();
   ~Entity();
 
   void addComponent(Component* component);
   std::vector<Component*> getComponents();
+
+  unsigned int id;
 };

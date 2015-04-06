@@ -1,3 +1,2 @@
 @echo off
-mkdir csharp
-swig -c++ -csharp -dllimport __Internal -outdir csharp -o CSharpBindings.cpp Engine.i
+swig -c++ -csharp -dllimport __Internal -outdir E:\projects\blog\build\Engine -o CSharpBindings.cpp Engine.i

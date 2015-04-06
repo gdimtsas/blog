@@ -1056,6 +1056,28 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Entity_getComponents(void * jarg1) {
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_Entity_id_set(void * jarg1, unsigned int jarg2) {
+  Entity *arg1 = (Entity *) 0 ;
+  unsigned int arg2 ;
+  
+  arg1 = (Entity *)jarg1; 
+  arg2 = (unsigned int)jarg2; 
+  if (arg1) (arg1)->id = arg2;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Entity_id_get(void * jarg1) {
+  unsigned int jresult ;
+  Entity *arg1 = (Entity *) 0 ;
+  unsigned int result;
+  
+  arg1 = (Entity *)jarg1; 
+  result = (unsigned int) ((arg1)->id);
+  jresult = result; 
+  return jresult;
+}
+
+
 SWIGEXPORT Component * SWIGSTDCALL CSharp_TransformationComponent_SWIGUpcast(TransformationComponent *jarg1) {
     return (Component *)jarg1;
 }
