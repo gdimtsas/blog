@@ -13,6 +13,6 @@ include_directories (
   ${LUA_INCLUDE_DIRS}
   )
 
-add_executable(embedding_lua main.cpp EngineLua.cpp Engine.h Entity.h Component.h TransformationComponent.h)
+add_executable(embedding_lua main.cpp EngineLua.cpp swig.h Engine.h Entity.h Component.h TransformationComponent.h)
 
 target_link_libraries(embedding_lua ${LUA_LIBRARIES} )
