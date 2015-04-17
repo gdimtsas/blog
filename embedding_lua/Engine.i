@@ -30,7 +30,10 @@ namespace Engine
   public:
     Entity(unsigned int id);
 
+    %apply SWIGTYPE *DISOWN {Component* component};
     void addComponent(Component* component);
+    %clear Component* component;
+
     const std::vector<Component*>& getComponents();
 
     unsigned int id;
@@ -39,7 +42,11 @@ namespace Engine
   class Engine
   {
   public:
+
+    %apply SWIGTYPE *DISOWN {Entity* entity};
     void addEntity(Entity* entity);
+    %clear Entity* entity;
+
     const std::vector<Entity*>& getEntities();
   };
 }
