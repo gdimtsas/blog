@@ -3762,7 +3762,8 @@ static int _wrap_Entity_addComponent(lua_State* L) {
     SWIG_fail_ptr("Entity_addComponent",1,SWIGTYPE_p_Engine__Entity);
   }
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Engine__Component,SWIG_POINTER_DISOWN))){
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Engine__Component,0))){
     SWIG_fail_ptr("Entity_addComponent",2,SWIGTYPE_p_Engine__Component);
   }
   
@@ -3916,7 +3917,8 @@ static int _wrap_Engine_addEntity(lua_State* L) {
     SWIG_fail_ptr("Engine_addEntity",1,SWIGTYPE_p_Engine__Engine);
   }
   
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Engine__Entity,SWIG_POINTER_DISOWN))){
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Engine__Entity,0))){
     SWIG_fail_ptr("Engine_addEntity",2,SWIGTYPE_p_Engine__Entity);
   }
   
