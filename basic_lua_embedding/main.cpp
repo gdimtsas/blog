@@ -16,15 +16,7 @@ int basic(int argc, char *argv[])
   luaL_openlibs(L);
 
   // execute a lua statement from a string
-  int status = luaL_dostring(L, "print('Hello from Lua!')");
-
-  // check for errors
-  if(status != 0)
-    {
-      std::cerr << lua_tostring(L, -1) << std::endl;
-      lua_pop(L, 1);
-      return -1;
-    }
+  luaL_dostring(L, "print('Hello from Lua!')");
 
   // cleanup lua
   lua_close(L);
@@ -49,9 +41,17 @@ int luaFunctionCall(int argc, char *argv[])
   lua_pushnumber(L, 11);
 
   // do the call (2 arguments, 1 result)
-  lua_call(L, 2, 1);
+  int status = lua_call(L, 2, 1);
 
-  // check the result (which is on the top of the stack)
+  // check for errors
+  if(status != 0)
+    {
+      std::cerr << lua_tostring(L, -1) << std::endl;
+      lua_pop(L, 1);
+      return -1;
+    }
+
+  // check the result (-1 is the index of the value on the top of the stack)
   if (lua_isnumber(L, -1))
     {
       lua_Number result = lua_tonumber(L, -1);
