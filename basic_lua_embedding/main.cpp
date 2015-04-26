@@ -41,7 +41,7 @@ int luaFunctionCall(int argc, char *argv[])
   lua_pushnumber(L, 11);
 
   // do the call (2 arguments, 1 result)
-  int status = lua_call(L, 2, 1);
+  int status = lua_pcall(L, 2, 1, 0);
 
   // check for errors
   if(status != 0)
@@ -67,22 +67,20 @@ int luaFunctionCall(int argc, char *argv[])
   return 0;
 }
 
-extern "C"
+int sqrtAndPow(lua_State* L)
 {
-  int doubleAndTriple(lua_State* L)
-  {
-    // retrieve the first (and only) argument
-    lua_Number n = luaL_checknumber(L, 1);
+  // retrieve the first (and only) argument
+  lua_Number n = luaL_checknumber(L, 1);
 
-    // push the first return value
-    lua_pushnumber(L, n * 2);
-    // and then the second
-    lua_pushnumber(L, n * 3);
+  // push the first return value
+  lua_pushnumber(L, sqrt(n));
+  // and then the second
+  lua_pushnumber(L, pow(n,2));
 
-    // return the number of returned results
-    return 2;
-  }
+  // return the number of returned results
+  return 2;
 }
+
 
 int cFunctionCall(int argc, char *argv[])
 {
@@ -90,11 +88,11 @@ int cFunctionCall(int argc, char *argv[])
   lua_State* L = lua_open();
   luaL_openlibs(L);
 
-  // register the doubleAndTriple function under the name "f"
-  lua_register(L, "f", doubleAndTriple);
+  // register the sqrtAndPow function under the name "f"
+  lua_register(L, "f", sqrtAndPow);
 
   // call the c function from lua
-  luaL_dostring(L, "a, b = f(5);");
+  luaL_dostring(L, "a, b = f(3);");
   luaL_dostring(L, "print('a = ' .. a)");
   luaL_dostring(L, "print('b = ' .. b)");
 
@@ -107,6 +105,6 @@ int cFunctionCall(int argc, char *argv[])
 int main(int argc, char *argv[])
 {
   //basic(argc, argv);
-  luaFunctionCall(argc, argv);
-  //cFunctionCall(argc, argv);
+  //luaFunctionCall(argc, argv);
+  cFunctionCall(argc, argv);
 }
