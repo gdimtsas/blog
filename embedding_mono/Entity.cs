@@ -4,27 +4,28 @@ namespace Example
 {
   public class Entity
   {
-    private String name;
+    private int Id;
+    private String Name;
 
-    public Entity(String name)
+    public Entity(String Name)
     {
-      this.name = name;
-      System.Console.WriteLine("I'm alive! My name is " + name);
+      this.Name = Name;
+      System.Console.WriteLine("Entity " + Name + " constructed");
     }
 
     ~Entity()
     {
-      System.Console.WriteLine("I'm being finalized!");
+      System.Console.WriteLine("Entity " + Name + " destructed");
     }
 
     public void Process()
     {
-      throw new Exception("Oh no!");
+      throw new NotImplementedException("Not implemented yet");
     }
 
-    public String getName()
+    public String GetName()
     {
-      return name;
+      return Name;
     }
   }
 }
