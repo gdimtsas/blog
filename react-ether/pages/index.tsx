@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
+
 import type { NextPage } from "next";
 import Head from "next/head";
-import { VStack, HStack, Heading, Box } from "@chakra-ui/layout";
-import { Button, Flex, Spacer, Divider, Stat, StatLabel, StatNumber, StatHelpText, Badge } from "@chakra-ui/react";
 
-import { useState, useEffect } from "react";
+import { HStack, Heading, Box } from "@chakra-ui/layout";
+import { Button, Flex, Divider, Stat, StatLabel, StatNumber, StatHelpText, Badge } from "@chakra-ui/react";
+
 import { ethers } from "ethers";
 import { Web3Provider } from "@ethersproject/providers";
 
@@ -91,10 +93,8 @@ const Home: NextPage = () => {
       <Head>
         <title>My DAPP</title>
       </Head>
-      <Flex>
-        <Spacer />
-        <VStack w="35em">
-          <Spacer />
+      <Flex height="100vh" alignItems="center" justifyContent="center">
+        <Flex direction="column" width="35em" background="gray.700" p={12} rounded={6}>
           <Box w="100%">
             {currentAccount ? (
               <Button colorScheme="green" type="button" w="100%" onClick={disconnect}>
@@ -130,8 +130,7 @@ const Home: NextPage = () => {
           ) : (
             <></>
           )}
-        </VStack>
-        <Spacer />
+        </Flex>
       </Flex>
     </>
   );

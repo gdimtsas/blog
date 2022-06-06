@@ -3,9 +3,9 @@ import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
   );
 }
 
