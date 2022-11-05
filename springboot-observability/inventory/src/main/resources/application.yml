@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: inventory
+
+  jpa.defer-datasource-initialization: true
