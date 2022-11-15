@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: inventory
+
+  jpa.defer-datasource-initialization: true
+
+logging.pattern.level: '%5p [${spring.application.name:},%mdc{trace_id:-},%mdc{span_id:-}]'
